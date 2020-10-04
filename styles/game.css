@@ -1,0 +1,10 @@
+:root {
+    --color-background: #282A36;
+}
+
+#game-canvas {
+    height: 100vh;
+    width: 100vw;
+
+    background-color: var(--color-background);
+}
