@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Joystix';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Joystix'), url(../assets/fonts/joystix_monospace.otf) format('woff2');
+}
+
 :root {
     --color-background: #282A36;
 }

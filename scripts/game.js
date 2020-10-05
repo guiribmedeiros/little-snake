@@ -11,10 +11,11 @@ let score;
 let isPaused;
 let fpsInterval, startTime, now, then, elapsed;
 let animationFrame;
+let FONT_NAME;
 
 // Loading the browser's window
 window.addEventListener('load', function () {
-    game();
+    document.fonts.load('48px Joystix').then(game);
 });
 
 // Resizing the canvas on window resize
@@ -93,25 +94,24 @@ function spawnLocation() {
 
 // Showing the score of the player
 function showScore() {
-    const gradient = ctx.createLinearGradient(0, 0, width, 0);
-    gradient.addColorStop("0", "white");
+    var gradient = ctx.createLinearGradient(0, 0, width, 0);
+    gradient.addColorStop('0', 'white');
 
-    ctx.texAlign = 'center';
-    ctx.font = '24px Arial';
+    ctx.textAlign = 'center';
+    ctx.font = `24px ${FONT_NAME}`;
     ctx.fillStyle = gradient;
     ctx.fillText('SCORE: ' + score, width - 120, 30);
-
 }
 
 // Showing if the game is paused
 function showPaused() {
-    const gradient = ctx.createLinearGradient(0, 0, width, 0);
+    var gradient = ctx.createLinearGradient(0, 0, width, 0);
     gradient.addColorStop('0', 'white');
     gradient.addColorStop('0.5', 'green');
     gradient.addColorStop('1', 'blue');
 
-    ctx.texAlign = 'center';
-    ctx.font = '36px Arial'
+    ctx.textAlign = 'center';
+    ctx.font = `48px "${FONT_NAME}"`;
     ctx.fillStyle = gradient;
     ctx.fillText('PAUSED', width / 2, height / 2);
 }
@@ -246,6 +246,8 @@ function init() {
     canvas.width = width;
     canvas.height = height;
     ctx = canvas.getContext('2d');
+
+    FONT_NAME = 'Joystix';
 
     isPaused = false;
     score = 0;
