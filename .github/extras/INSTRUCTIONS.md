@@ -1,6 +1,6 @@
 ## The Play
 
-In the Little Snake game, you move a **little snake** around the board **eating fruits**, and as the little snake eats the fruits it **grows larger** and increases your **score** occupying more space on the board. The game ends when the little snake moves into itself.
+In the Little Snake game, you **move a little snake** around the board **eating fruits**, and as the little snake eats the fruits it **grows larger** and **scores points** occupying more space on the board. The game ends when the little snake moves into itself.
 
 ## Game Controls
 
