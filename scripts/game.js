@@ -10,8 +10,10 @@ let food;
 let score;
 let isPaused;
 let fpsInterval, startTime, now, then, elapsed;
-let animationFrame;
 let FONT_NAME;
+let die;
+let eat;
+let animationFrame;
 
 // Loading the browser's window
 window.addEventListener('load', function () {
@@ -248,6 +250,8 @@ function init() {
     ctx = canvas.getContext('2d');
 
     FONT_NAME = 'Joystix';
+    eat = new Audio('../assets/sounds/eat.mp3');
+    die = new Audio('../assets/sounds/die.mp3');
 
     isPaused = false;
     score = 0;
@@ -276,6 +280,7 @@ function update() {
         }
 
         if (snake.die()) {
+            die.play();
             alert("GAME OVER!!!");
             cancelAnimationFrame(animationFrame);
             window.location.reload();
@@ -284,6 +289,7 @@ function update() {
         snake.border();
 
         if (snake.eat()) {
+            eat.play();
             score += 10;
             food = new Food(spawnLocation(), "red");
         }
