@@ -7,6 +7,7 @@
 
 Little Snake is the reimplementation of the Snake game created in 1976 for the arcade game Blockade. This project was developed for personal research and testing purposes with [JavaScript](https://www.ecma-international.org). Little Snake is the literal translation for **"Jogo da Cobrinha"** because it's how the Brazilian kids call it and can entertain you even on your Nokia 6110 by [@nokia](https://github.com/nokia), see more:
 
+- Read the [Game Instructions](./.github/extras/INSTRUCTIONS.md).
 - Try it at a [Live Example](https://little-snake.guiribmedeiros.io).
 
 Little Snake is an open-sourced game. It is written in [JavaScript](https://www.ecma-international.org).
