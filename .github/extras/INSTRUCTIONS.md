@@ -4,7 +4,7 @@ In the Little Snake game, you **move a little snake** around the board **eating 
 
 ## Game Controls
 
-| Key           | Touch Gesture | Action    |
+| Key           | Gesture       | Action    |
 | ------------- | ------------- | --------  |
 | Up Arrow      | Swipe Up      | Turn Up   |
 | Down Arrow    | Swipe Down    | Turn Down |
