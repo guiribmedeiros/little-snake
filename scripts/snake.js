@@ -39,32 +39,23 @@ window.addEventListener('keydown', function (event) {
     if (event.key === ' ') {
         event.preventDefault();
 
-        isPaused = !isPaused;
-        showPaused();
+        pauseGame();
     } else if (event.key === 'ArrowUp') {
         event.preventDefault();
 
-        if (snake.velY != 1 && snake.posX >= 0 && snake.posX <= gameCanvas.width && snake.posY >= 0 && snake.posY <= gameCanvas.height) {
-            snake.changeDirection({ x: 0, y: -1 });
-        }
+        snake.changeDirection('UP');
     } else if (event.key === 'ArrowDown') {
         event.preventDefault();
 
-        if (snake.velY != -1 && snake.posX >= 0 && snake.posX <= gameCanvas.width && snake.posY >= 0 && snake.posY <= gameCanvas.height) {
-            snake.changeDirection({ x: 0, y: 1 });
-        }
+        snake.changeDirection('DOWN');
     } else if (event.key === 'ArrowLeft') {
         event.preventDefault();
 
-        if (snake.velX != 1 && snake.posX >= 0 && snake.posX <= gameCanvas.width && snake.posY >= 0 && snake.posY <= gameCanvas.height) {
-            snake.changeDirection({ x: -1, y: 0 });
-        }
+        snake.changeDirection('LEFT');
     } else if (event.key === 'ArrowRight') {
         event.preventDefault();
 
-        if (snake.velX != -1 && snake.posX >= 0 && snake.posX <= gameCanvas.width && snake.posY >= 0 && snake.posY <= gameCanvas.height) {
-            snake.changeDirection({ x: 1, y: 0 });
-        }
+        snake.changeDirection('RIGHT');
     }
 });
 
@@ -139,6 +130,12 @@ function startGame() {
 
     // Starts the game loop
     loopGame();
+}
+
+// Pauses the game
+function pauseGame() {
+    isPaused = !isPaused;
+    showPaused();
 }
 
 // Shows the game score
@@ -301,8 +298,27 @@ class Snake {
 
     // Changes the movement's direction
     changeDirection(direction) {
-        this.velX = direction.x;
-        this.velY = direction.y;
+        if (direction === 'UP') {
+            if (snake.velY != 1 && snake.posX >= 0 && snake.posX <= gameCanvas.width && snake.posY >= 0 && snake.posY <= gameCanvas.height) {
+                this.velX = 0;
+                this.velY = -1;
+            }
+        } else if (direction === 'DOWN') {
+            if (snake.velY != -1 && snake.posX >= 0 && snake.posX <= gameCanvas.width && snake.posY >= 0 && snake.posY <= gameCanvas.height) {
+                this.velX = 0;
+                this.velY = 1;
+            }
+        } else if (direction === 'LEFT') {
+            if (snake.velX != 1 && snake.posX >= 0 && snake.posX <= gameCanvas.width && snake.posY >= 0 && snake.posY <= gameCanvas.height) {
+                this.velX = -1;
+                this.velY = 0;
+            }
+        } else if (direction === 'RIGHT') {
+            if (snake.velX != -1 && snake.posX >= 0 && snake.posX <= gameCanvas.width && snake.posY >= 0 && snake.posY <= gameCanvas.height) {
+                this.velX = 1;
+                this.velY = 0;
+            }
+        }
     }
 
     // Determines whether the snake has eaten a fruit
